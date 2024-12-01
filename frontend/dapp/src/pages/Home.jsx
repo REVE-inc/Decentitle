@@ -1,7 +1,9 @@
 import React from 'react';
 import '../styles/Home.css';
 import Navbar from '../components/home_navbar';
-
+import HoverBox from '../components/hover_box';
+import HoverBox2 from '../components/hover_box2'
+import ConnectWalletButton from '../components/connet_wallet';
 function Home() {
   return (
     <div className="App">
@@ -15,18 +17,13 @@ function Home() {
         <input type="text" placeholder="e-mail or username" className="input-field" />
         <input type="password" placeholder="password" className="input-field" />
         <button className="login-button">Log in</button>
+        <ConnectWalletButton/>
       </div>
 
       <div className="register-section">
+          <HoverBox />
         <div className="register-box">
-          <h3>Register as a company</h3>
-          <p>For recruiting workers</p>
-          <img src="company-icon.png" alt="Company Icon" />
-        </div>
-        <div className="register-box">
-          <h3>Register as a candidate</h3>
-          <p>For searching jobs</p>
-          <img src="candidate-icon.png" alt="Candidate Icon" />
+          <HoverBox2 />
         </div>
       </div>
 
