@@ -9,7 +9,7 @@ function Home() {
     <div className="App">
       <header className="header">
         <input type="text" className="search-bar" placeholder="search" />
-        <Navbar />
+        <Navbar className="nav-bar" />
       </header>
 
       <div className="login-section">

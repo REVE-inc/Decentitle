@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import '../styles/Ad.css';
-
+import VideoUpload from '../components/VideoUpload';
+import ImageUploader from '../components/picupload';
 function Ad() {
   // 狀態管理
   const [formData, setFormData] = useState({
@@ -12,10 +13,10 @@ function Ad() {
 
   // 廣告類型選項
   const adTypes = [
-    { value: 'image', label: '圖片廣告' },
-    { value: 'url', label: '連結廣告' },
-    { value: 'video', label: '影片廣告' },
-    { value: 'text', label: '文字廣告' }
+    { value: 'image', label: '首頁廣告' },
+    { value: 'image', label: '用戶橫幅廣告' },
+    { value: 'video', label: '跳出影片廣告' },
+    { value: 'image', label: '跳出橫幅廣告' }
   ];
 
   // 處理輸入變化
@@ -79,6 +80,7 @@ function Ad() {
   };
 
   return (
+    <>
     <div className="container">
       <h1>網頁廣告銷售平台</h1>
       <form onSubmit={handleSubmit}>
@@ -122,27 +124,11 @@ function Ad() {
         </div>
 
         {formData.adType === 'image' && (
-          <div className="form-group">
-            <label>上傳圖片:</label>
-            <input
-              type="file"
-              accept="image/*"
-              onChange={handleFileUpload}
-              required
-            />
-          </div>
+          <ImageUploader />
         )}
 
         {formData.adType === 'video' && (
-          <div className="form-group">
-            <label>上傳影片:</label>
-            <input
-              type="file"
-              accept="video/*"
-              onChange={handleFileUpload}
-              required
-            />
-          </div>
+          <VideoUpload />
         )}
 
         {formData.adType === 'url' && (
@@ -179,6 +165,7 @@ function Ad() {
         </button>
       </form>
     </div>
+    </>
   );
 }
 

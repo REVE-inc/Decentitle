@@ -1,9 +1,14 @@
+body{
+  display: block;
+}
 .App {
     min-height: 100vh;
+    max-width: 100%5;
+    width: 100vw;
     display: flex;
     flex-direction: column;
     font-family: Arial, sans-serif;
-    text-align: center;
+    text-align: center; 
     justify-content: flex-start;
     align-items: center;
     background-color: #f0f4f7;
@@ -22,8 +27,14 @@
     padding: 5px;
     border: 1px solid #ccc;
     border-radius: 5px;
+    left: 10px;
+    position: relative; 
   }
   
+  nav{
+    position: relative;
+    padding-right: 10px;
+  }
   .nav-bar a {
     margin: 0 10px;
     text-decoration: none;

@@ -43,3 +43,5 @@ urllib3==2.2.3
 web3==6.11.1
 websockets==14.1
 yarl==1.18.0
+Pillow==11.0.0
+django-cors-headers==4.6.0
