@@ -2,7 +2,14 @@ import React, { useState } from 'react';
 import '../styles/Ad.css';
 import VideoUpload from '../components/VideoUpload';
 import ImageUploader from '../components/picupload';
+import AdPopupPlayer from '../components/popupvideo';
 function Ad() {
+
+
+  const [showAd, setShowAd] = useState(false);
+  const [adId, setAdId] = useState("f2e74c6d-e8db-49e2-b596-4fd28ebd680d"); // 預設測試ID
+
+
   // 狀態管理
   const [formData, setFormData] = useState({
     name: '',
@@ -10,13 +17,13 @@ function Ad() {
     adType: '',
     adContent: null
   });
-
+  const [buttonEnabled, setButtonEnabled] = useState(false);
   // 廣告類型選項
   const adTypes = [
     { value: 'image', label: '首頁廣告' },
-    { value: 'image', label: '用戶橫幅廣告' },
+    { value: 'image_user', label: '用戶橫幅廣告' },
     { value: 'video', label: '跳出影片廣告' },
-    { value: 'image', label: '跳出橫幅廣告' }
+    { value: 'image_popup', label: '跳出橫幅廣告' }
   ];
 
   // 處理輸入變化
@@ -28,6 +35,20 @@ function Ad() {
     }));
   };
 
+
+  const handleCheck = async (unique_id) => {
+    const response = await fetch('http://127.0.0.1:8000/ad/video/checkstatus/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ unique_id: unique_id })
+    });
+    const data = await response.json();
+    if (data.exists) {
+      setButtonEnabled(true);
+    } else {
+      setButtonEnabled(false);
+    }
+  }
   // 處理檔案上傳
   const handleFileUpload = (e) => {
     setFormData(prev => ({
@@ -57,12 +78,6 @@ function Ad() {
       case 'video':
         if (!formData.adContent || !formData.adContent.type.startsWith('video/')) {
           alert('請上傳影片');
-          return;
-        }
-        break;
-      case 'url':
-        if (!formData.adContent) {
-          alert('請輸入URL');
           return;
         }
         break;
@@ -126,9 +141,14 @@ function Ad() {
         {formData.adType === 'image' && (
           <ImageUploader />
         )}
-
+        {formData.adType === 'image_user' && (
+          <ImageUploader />
+        )}
+        {formData.adType === 'image_popup' && (
+          <ImageUploader />
+        )}
         {formData.adType === 'video' && (
-          <VideoUpload />
+          <VideoUpload onCheck={handleCheck} />
         )}
 
         {formData.adType === 'url' && (
@@ -160,11 +180,23 @@ function Ad() {
           </div>
         )}
 
-        <button type="submit" className="submit-btn">
+        <button type="submit" className="submit-btn" disabled={!buttonEnabled}>
           提交廣告
         </button>
       </form>
     </div>
+
+
+    <div>
+      <button onClick={() => setShowAd(true)}>顯示廣告</button>
+      {showAd && (
+        <AdPopupPlayer
+          adId={adId}
+          onClose={() => setShowAd(false)}
+        />
+      )}
+    </div>
+
     </>
   );
 }

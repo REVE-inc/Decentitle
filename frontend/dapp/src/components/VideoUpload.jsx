@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 
-const VideoUpload = () => {
+const VideoUpload = ({onCheck}) => {
   const [progress, setProgress] = useState(0);
   const [file, setFile] = useState(null);
-
+  const [uniqueId, setUniqueId] = useState('');
   // 處理檔案選擇
   const handleFileChange = (event) => {
     setFile(event.target.files[0]);
@@ -34,6 +34,10 @@ const VideoUpload = () => {
 
       alert('上傳成功！');
       console.log('Response:', response.data);
+      if (response.data && response.data.unique_id) {
+        setUniqueId(response.data.unique_id)
+        onCheck(response.data.unique_id)
+      }
     } catch (error) {
       console.error('上傳失敗：', error);
       alert('上傳失敗，請稍後再試！');
@@ -49,6 +53,7 @@ const VideoUpload = () => {
         <div style={{ ...styles.progressBar, width: `${progress}%` }} />
       </div>
       <p>{progress}%</p>
+      {uniqueId && <p>廣告ID:{uniqueId}</p>}
     </div>
   );
 };
