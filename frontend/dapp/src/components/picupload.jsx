@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 
-const ImageUploader = () => {
+const ImageUploader = ({onCheck}) => {
     const [selectedFile, setSelectedFile] = useState(null);
     const [preview, setPreview] = useState(null);
     const [uploadStatus, setUploadStatus] = useState('');
-
+    const [unique_id, setUniqueId] = useState('')
     // 處理圖片選擇
     const handleFileChange = (event) => {
         const file = event.target.files[0];
@@ -41,6 +41,10 @@ const ImageUploader = () => {
                 },
             });
             setUploadStatus('Upload successful!');
+            if (response.data && response.data.unique_id) {
+                setUniqueId(response.data.unique_id)
+                onCheck(response.data.unique_id)
+              }
         } catch (error) {
             console.error('Error uploading image:', error);
             setUploadStatus('Upload failed. Please try again.');
@@ -70,6 +74,7 @@ const ImageUploader = () => {
                 Upload
             </button>
             {uploadStatus && <p style={{ marginTop: '10px', color: uploadStatus.includes('successful') ? 'green' : 'red' }}>{uploadStatus}</p>}
+            {unique_id && <p>廣告ID:{unique_id}</p>}
         </div>
     );
 };

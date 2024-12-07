@@ -3,11 +3,12 @@ import '../styles/Ad.css';
 import VideoUpload from '../components/VideoUpload';
 import ImageUploader from '../components/picupload';
 import AdPopupPlayer from '../components/popupvideo';
+import PicPopupPlayer from '../components/popupimage';
 function Ad() {
 
 
   const [showAd, setShowAd] = useState(false);
-  const [adId, setAdId] = useState("f2e74c6d-e8db-49e2-b596-4fd28ebd680d"); // 預設測試ID
+  const [adId, setAdId] = useState("b60318ad-0aeb-4b46-a18a-619407d5bb9d"); // 預設測試ID
 
 
   // 狀態管理
@@ -35,8 +36,20 @@ function Ad() {
     }));
   };
 
-
-  const handleCheck = async (unique_id) => {
+  const handleCheckPic = async (unique_id) => {
+    const response = await fetch('http://127.0.0.1:8000/ad/picture/checkstatus/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ unique_id: unique_id })
+    });
+    const data = await response.json();
+    if (data.exists) {
+      setButtonEnabled(true);
+    } else {
+      setButtonEnabled(false);
+    }
+  }
+  const handleCheckVid = async (unique_id) => {
     const response = await fetch('http://127.0.0.1:8000/ad/video/checkstatus/', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -139,16 +152,16 @@ function Ad() {
         </div>
 
         {formData.adType === 'image' && (
-          <ImageUploader />
+          <ImageUploader onCheck={handleCheckPic}/>
         )}
         {formData.adType === 'image_user' && (
-          <ImageUploader />
+          <ImageUploader onCheck={handleCheckPic}/>
         )}
         {formData.adType === 'image_popup' && (
-          <ImageUploader />
+          <ImageUploader onCheck={handleCheckPic}/>
         )}
         {formData.adType === 'video' && (
-          <VideoUpload onCheck={handleCheck} />
+          <VideoUpload onCheck={handleCheckVid} />
         )}
 
         {formData.adType === 'url' && (
@@ -191,6 +204,16 @@ function Ad() {
       <button onClick={() => setShowAd(true)}>顯示廣告</button>
       {showAd && (
         <AdPopupPlayer
+          adId={adId}
+          onClose={() => setShowAd(false)}
+        />
+      )}
+    </div>
+
+    <div>
+      <button onClick={() => setShowAd(true)}>顯示廣告</button>
+      {showAd && (
+        <PicPopupPlayer
           adId={adId}
           onClose={() => setShowAd(false)}
         />
