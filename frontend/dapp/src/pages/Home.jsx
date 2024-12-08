@@ -1,9 +1,11 @@
 import React from 'react';
+import { useEffect } from 'react';
 import '../styles/Home.css';
 import Navbar from '../components/home_navbar';
 import HoverBox from '../components/hover_box';
 import HoverBox2 from '../components/hover_box2'
 import ConnectWalletButton from '../components/connet_wallet';
+import HoverBox3 from '../components/hover_box3';
 function Home() {
   return (
     <div className="App">
@@ -22,9 +24,8 @@ function Home() {
 
       <div className="register-section">
           <HoverBox />
-        <div className="register-box">
           <HoverBox2 />
-        </div>
+          <HoverBox3 />
       </div>
 
       <div className="stats-section">
@@ -43,7 +44,7 @@ function Home() {
       </div>
 
       <div className="popular-section">
-        <h4>Most popular company</h4>
+        <h4>AD</h4>
         <div className="popular-companies">
           <img src="facebook-icon.png" alt="Facebook" />
           <img src="ea-icon.png" alt="EA" />

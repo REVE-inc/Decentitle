@@ -1,0 +1,47 @@
+.hover-box {
+    width: 200px;
+    height: 200px;
+    background-color: #ffffff;
+    position: relative;
+    overflow: hidden;
+    border: 3px solid #aca4a4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-left: 20px;
+  }
+  
+  .text {
+    position: absolute;
+    color: #333;
+    font-size: 16px;
+    opacity: 1;
+    transition: opacity 0.5s ease;
+  }
+  
+  .text.hidden {
+    opacity: 0;
+  }
+  
+  .image3 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('../assets/homepage/referrer.webp'); /* 替換為你的圖片路徑 */
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+  }
+  
+  .image3.visible {
+    opacity: 1;
+  }
+  
+  #referrer_logo{
+    width: 20px;
+    height: 20px;
+  }

@@ -2,6 +2,8 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './pages/Home';
 import Ad from './pages/Ad';
 import Applicant from './pages/applicant';
+import ReferralPage from './pages/referal';
+import CompanyProfile from './pages/companyinfo';
 function App() {
     return (
         <Router>
@@ -9,6 +11,8 @@ function App() {
                 <Route path="/" element={<Home />} />
                 <Route path="/ad" element={<Ad />} />
                 <Route path="/applicant" element={<Applicant />} />
+                <Route path="/referal" element={<ReferralPage />} />
+                <Route path="/companyinfo/:companyid" element={<CompanyProfile />} />
             </Routes>
         </Router>
     );

@@ -8,7 +8,7 @@ function Ad() {
 
 
   const [showAd, setShowAd] = useState(false);
-  const [adId, setAdId] = useState("b60318ad-0aeb-4b46-a18a-619407d5bb9d"); // 預設測試ID
+  const [adId, setAdId] = useState("37c99ccc-0968-4a3c-a64f-a7cbde7c9c08"); // 預設測試ID
 
 
   // 狀態管理
