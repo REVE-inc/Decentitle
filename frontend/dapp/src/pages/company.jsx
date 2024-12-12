@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import JobList from '../components/JobList';
 import Wallet from '../components/Wallet';
 import Advertisement from '../components/Advertisement';
@@ -6,8 +7,8 @@ import Certifications from '../components/Certifications';
 
 function Company() {
   return (
-    <div className="app-container">
-      <header className="app-header">
+    <div className="App">
+      <header className="header">
         <h1>Flying Music Inc.</h1>
         <nav>
         <Link to="/">Home</Link>
