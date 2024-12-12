@@ -10,9 +10,9 @@ function Company() {
       <header className="app-header">
         <h1>Flying Music Inc.</h1>
         <nav>
-          <a href="#">Home</a>
-          <a href="#">Candidate</a>
-          <a href="#">Company</a>
+        <Link to="/">Home</Link>
+        <Link to="/candidate">Candidate</Link>
+        <Link to="/company">Company</Link>
         </nav>
       </header>
 
