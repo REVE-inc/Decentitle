@@ -29,7 +29,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     crypto_address = models.CharField(max_length=255, blank=True, null=True, verbose_name='Crypto 錢包地址')
     role = models.IntegerField(default=0, verbose_name='用戶角色(數字)')
     avatar = models.ImageField(upload_to='avatars/', blank=True, null=True, verbose_name='用戶大頭貼')
-    
+    is_verify_wallet = models.BooleanField(default=False, verbose_name='是否驗證錢包')  # 新增欄位
     # Django 欄位
     is_active = models.BooleanField(default=True)
     is_staff = models.BooleanField(default=False)
@@ -42,3 +42,12 @@ class User(AbstractBaseUser, PermissionsMixin):
 
     def __str__(self):
         return self.email
+
+
+class Nonce(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='nonces')
+    nonce = models.CharField(max_length=255, unique=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f"{self.user.email} - {self.nonce}"

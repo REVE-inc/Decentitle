@@ -4,8 +4,8 @@ import '../styles/Home.css';
 import Navbar from '../components/home_navbar';
 import HoverBox from '../components/hover_box';
 import HoverBox2 from '../components/hover_box2'
-import ConnectWalletButton from '../components/connet_wallet';
 import HoverBox3 from '../components/hover_box3';
+import CryptoLogin from '../components/cryptologin';
 function Home() {
   return (
     <div className="App">
@@ -19,7 +19,7 @@ function Home() {
         <input type="text" placeholder="e-mail or username" className="input-field" />
         <input type="password" placeholder="password" className="input-field" />
         <button className="login-button">Log in</button>
-        <ConnectWalletButton/>
+        <CryptoLogin />
       </div>
 
       <div className="register-section">

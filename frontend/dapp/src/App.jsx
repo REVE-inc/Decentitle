@@ -5,6 +5,9 @@ import Applicant from './pages/applicant';
 import ReferralPage from './pages/referal';
 import CompanyProfile from './pages/companyinfo';
 import Company from './pages/company';
+import Register from './pages/register'
+import Verifywallet from './pages/verifywallet';
+import Certification_page from './pages/certification_page';
 function App() {
     return (
         <Router>
@@ -15,6 +18,9 @@ function App() {
                 <Route path="/applicant" element={<Applicant />} />
                 <Route path="/referal" element={<ReferralPage />} />
                 <Route path="/companyinfo/:companyid" element={<CompanyProfile />} />
+                <Route path="/register/:userType" element={<Register />} />
+                <Route path="/verifywallet" element={<Verifywallet />} />
+                <Route path='/cetifi-institute' element={<Certification_page />} />
             </Routes>
         </Router>
     );

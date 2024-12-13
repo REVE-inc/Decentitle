@@ -1,0 +1,123 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #e8f1f5;
+  }
+  
+  .container {
+    width: 80%;
+    margin: auto;
+    padding: 20px;
+  }
+  
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: #ffffff;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .nav span {
+    margin: 0 10px;
+    font-weight: bold;
+  }
+  
+  .nav input {
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+  }
+  
+  main {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .certifications,
+  .wallet,
+  .advertisement {
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .certifications-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .certifications-list {
+    margin-top: 10px;
+  }
+  
+  .certification-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid #eee;
+  }
+  
+  .certification-info h3 {
+    margin: 0;
+    font-size: 18px;
+  }
+  
+  .certification-actions button {
+    padding: 5px 10px;
+    margin: 0 5px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .detail-btn {
+    background: #d1e7ff;
+  }
+  
+  .check-btn {
+    background: #b0ffba;
+  }
+  
+  .wallet-summary p,
+  .wallet-balance span,
+  .wallet-balance .amount {
+    margin: 0;
+  }
+  
+  .wallet-balance {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .deposit-btn,
+  .stake-btn,
+  .withdraw-btn,
+  .purchase-btn {
+    padding: 5px 10px;
+    margin: 5px 0;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background: #f0f8ff;
+  }
+  
+  .ad-options {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .ad-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  

@@ -1,11 +1,18 @@
 import React, { useState } from 'react';
 import '../styles/hover_box3.css'; // 用於引入CSS
+import { useNavigate } from 'react-router-dom';
 import referrer_logo from '../assets/homepage/referrer.png'
 const HoverBox3 = () => {
+  const navigate = useNavigate()
+
+  const handleClick = () => {
+    navigate('/register/referrer')
+  }
+
   const [isHovered, setIsHovered] = useState(false);
 
   return (
-    <div
+    <div onClick={handleClick}
       className="hover-box"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
