@@ -6,13 +6,18 @@ const Advertisement = () => {
     <div className="advertisement-container">
       <h2>Advertisement</h2>
       <div className="ad-card">
-        <p>5 days advertisement</p>
-        <span>$5</span>
+      <div className="ad-text">
+        <p>50 advertisement tokens</p>
+        <span>5 Tcoin</span>
+        </div>
         <button>Purchase</button>
       </div>
+
       <div className="ad-card">
-        <p>10 days advertisement</p>
-        <span>$9</span>
+      <div className="ad-text">
+        <p>100 advertisement tokens</p>
+        <span>9 Tcoin</span>
+        </div>
         <button>Purchase</button>
       </div>
     </div>
