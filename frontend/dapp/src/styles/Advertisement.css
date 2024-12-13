@@ -1,22 +1,58 @@
 .advertisement-container {
-    background: #f0f8ff;
-    padding: 20px;
-    border-radius: 12px;
-    margin-bottom: 20px;
-  }
-  
-  .ad-card {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 10px;
-  }
-  
-  .ad-card button {
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    padding: 5px 10px;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
+  background: #f0f8ff;
+  padding: 30px; /* 增加內邊距讓內容有更多空間 */
+  border-radius: 12px;
+  margin-bottom: 20px;
+  max-width: 800px; /* 增加最大寬度 */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+  box-sizing: border-box; /* 包括 padding 計算寬度 */
+  overflow: visible; /* 防止內容溢出 */
+}
+
+.ad-card {
+  display: flex;
+  justify-content: space-between; /* 讓文字和按鈕分佈左右 */
+  align-items: center; /* 垂直居中 */
+  gap: 20px; /* 左右元素之間的間隔 */
+  background: #ffffff;
+  padding: 15px 20px; /* 增加內邊距 */
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  margin-bottom: 15px; /* 每個 ad-card 之間的間距 */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* 添加陰影使內容更立體 */
+}
+
+.ad-text {
+  display: flex;
+  align-items: center;
+  gap: 15px; /* 文字和價格之間的間隔 */
+  flex: 1; /* 讓文字區域佔據剩餘空間 */
+  word-wrap: break-word;
+}
+
+.ad-text p {
+  margin: 0; /* 移除段落預設 margin */
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.ad-text span {
+  font-size: 16px;
+  color: #007bff;
+}
+
+.ad-card button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 8px 15px; /* 增加按鈕內邊距 */
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  white-space: nowrap; /* 防止按鈕內文字換行 */
+  transition: background-color 0.3s ease;
+}
+
+.ad-card button:hover {
+  background-color: #0056b3; /* 添加按鈕 hover 效果 */
+}
